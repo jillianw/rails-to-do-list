@@ -19,11 +19,18 @@ class TasksController < ApplicationController
     @tasks = current_user.tasks
   end
 
-  def complete
-    @task = find_by_id(params[:id])
-    @task.completed = true
+  def edit
+    @task = Task.find_by_id(params[:id])
+    @task_owner = Assignment.all
+    @family = Family.all 
+    @user = User.find_by_id(params[:id])  
+    
+  end
+
+  def update
+    @task = Task.find_by_id(params[:id])
     @task.save
 
-    redirect_to("/tasks")
+    redirect_to("/tasks/index")
   end
 end

@@ -1,0 +1,21 @@
+<h1>Update Task details:</h1>
+
+<%= form_tag "/tasks/:id/edit" do %>
+<form action="/tasks/<%= @task.id %>/update" method="post">
+  <p>
+    Title:
+    <input type="text" name="title" value="<%= @task.title %>">
+  </p>
+
+  <p>
+    Family:
+    <select name="category_id">
+      <option>Select a family...</option>
+
+      <% @family.each do |x| %>
+        <option value="<%= x.id %>">
+        <%= x.name %></option>
+      <% end %>
+    </select>
+
+<% end %>
