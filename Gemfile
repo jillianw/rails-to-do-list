@@ -58,3 +58,5 @@ group :staging, :production do
 end
 
 gem 'devise'
+
+gem "high_voltage"
