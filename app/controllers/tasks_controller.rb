@@ -17,6 +17,8 @@ class TasksController < ApplicationController
 
   def index
     @tasks = current_user.tasks
+    @user = User.all
+    @assignment = Assignment.all
   end
 
   def edit
